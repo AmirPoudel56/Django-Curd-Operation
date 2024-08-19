@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Registration(models.Model):
@@ -11,8 +12,8 @@ class Registration(models.Model):
     last_name = models.CharField(max_length=255)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     date_of_birth = models.DateField()
-    email = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    phone_number = PhoneNumberField()
     address = models.CharField(max_length=255)
     photo = models.ImageField(upload_to='profile_picture/')
 
